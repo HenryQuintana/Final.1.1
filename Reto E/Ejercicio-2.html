@@ -1,0 +1,25 @@
+<script>
+    let fib = [0, 1];
+    let numDivisors = 0;
+    let fibNumber;
+
+    while(numDivisors <= 1000) {
+        fibNumber = fib[0] + fib[1];
+        fib[0] = fib[1];
+        fib[1] = fibNumber;
+
+        numDivisors = 0;
+        let sqrtFibNumber = Math.sqrt(fibNumber);
+        for(let i = 1; i <= sqrtFibNumber; i++) {
+            if(fibNumber % i === 0) {
+                numDivisors += 2;
+            }
+        }
+        if(sqrtFibNumber * sqrtFibNumber === fibNumber) {
+            numDivisors--;
+        }
+    }
+
+    document.write("El primer número de Fibonacci que tiene más de 1000 divisores es: ", fibNumber);
+
+</script>

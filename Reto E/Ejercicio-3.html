@@ -1,0 +1,18 @@
+<script>
+    let distancia = Number(prompt("Ingrese la distancia en km (entre 0 y 2000): "));
+
+    if (distancia >= 0 && distancia <= 2000) {
+        let diasDeEntrega = [0, 1, 1, 2, 3];
+
+        for (let i = 5; i <= Math.floor(distancia / 100); i++) {
+            diasDeEntrega[i] = Number(diasDeEntrega[i - 1]) + Number(diasDeEntrega[i - 2]);
+        }
+
+        let diasEntrega = diasDeEntrega[Math.floor(distancia / 100)];
+
+        document.write(`Distancia: ${distancia} km<br>`);
+        document.write(`Tiempo estimado de entrega: ${diasEntrega} días`);
+    } else {
+        document.write("La distancia ingresada no es válida. Por favor, ingrese un valor entre 0 y 2000 km.");
+    }
+</script>

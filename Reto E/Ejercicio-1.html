@@ -1,0 +1,21 @@
+<script>                                                     
+    let text = ("afoolishconsistencyisthehobgoblin of little minds and such inconsistency is the hobgoblin of little minds with such consistency that its soul hassimply nothing to do and this consistency that we praise so much, I mean it's got its hassle to live up to. Now let's move on to something that will not make you wonder about its veracity.");
+    let palindromes = [];
+
+    for(let i = 0; i < text.length; i++) {
+        let left = i;
+        let right = i;
+
+        while(text[left] && text[left] === text[right]) {
+            left--;
+            right++;
+        }
+
+        if(left >= right) {
+            let palindrome = text.slice(left, right + 1);
+            palindromes.push(palindrome);
+        }
+    }
+
+    document.write("Los palíndromos encontrados en el texto son: ", palindromes.join(', '));
+</script>
